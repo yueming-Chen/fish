@@ -3,7 +3,7 @@
   var riverLength;
   var unsuitable=[];
   function loadJson(){
-    $.getJSON('../data/unimpounded.json',function(data){
+    $.getJSON('./data/unimpounded.json',function(data){
       riverLength=data;
     }).done(function(){
       $.getJSON('../data/test.json',function(data){
@@ -29,8 +29,24 @@
   }
   function check(){
     for(var key in markers){
-      for(var index in riverLength){
-
+      for(var item in markers[key].d){
+        for(var index in riverLength){
+          switch(item){
+            case 'C_idella': type=1;break;
+            case 'C_idella2': type=2;break;
+            case 'H.molitrix': type=3;break;
+            case 'H.molitrix2': type=4;break;
+            case 'M.piceus': type=5;break;
+          }
+          if(markers[key][item]<riverLength && markers[key].temp>17 && markers[key].total>=650 && markers[key].total<900){
+            if(markers[key].veloc<0.7) size=1;
+            else size = 2;
+          }
+          else if(markers[key][item]<riverLength && markers[key].temp>17 && markers[key].total>=900){
+            if(markers[key].veloc<0.7) size=3;
+            else size=4;
+          }
+        }
       }
     }
   }
