@@ -132,6 +132,7 @@
         case 5:
           var color='#F26419'; type='Piceus'; break;
       }
+      console.log(unsuitable[index].center);
       var cityCircle = new google.maps.Circle({
         strokeColor: color,
         strokeOpacity: 0.8,
