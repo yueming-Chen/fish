@@ -2,29 +2,33 @@
   var map;
   var riverLength;
   var unsuitable=[];
+
   function loadJson(){
     $.getJSON('./data/unimpounded.json',function(data){
       riverLength=data;
     }).done(function(){
-      $.getJSON('./data/test.json',function(data){
-        var place=data['place_name'],total=data['temperature_sum'];
-        for(var key in data['place_data'])
-          var today=data['place_data'][key];
-        var temp=today.avg_temperature,veloc=today.avg_veloc,d=today.d_value;
-        markers.push({
-          place:place,
-          total:total,
-          temp:temp,
-          veloc:veloc,
-          d:d,
-          center:{lat:0,lng:0},
-          GDD:1,
-          type:3
-        });
-      }).done(function(){
-        check();
-        initMap();
-      })
+      var array=['Indiana_1','Indiana_2','Michigan_1','Michigan_3','NewYork','Wisconsin_2','Wisconsin_3','Wisconsin_4','Wisconsin_5']; 
+      for(var key in array){
+        $.getJSON('./data/test/'+array[key]+'.json',function(data){
+          var place=data['place_name'],total=data['temperature_sum'];
+          for(var key in data['place_data'])
+            var today=data['place_data'][key];
+          var temp=today.avg_temperature,veloc=today.avg_veloc,d=today.d_value;
+          markers.push({
+            place:place,
+            total:total,
+            temp:temp,
+            veloc:veloc,
+            d:d,
+            center:{lat:0,lng:0},
+            GDD:1,
+            type:3
+          });
+        }).done(function(){
+          check();
+        })
+      }
+      initMap();
     });
   }
   function check(){
@@ -41,14 +45,36 @@
           if(markers[key][item]<riverLength && markers[key].temp>17 && markers[key].total>=650 && markers[key].total<900){
             if(markers[key].veloc<0.7) size=1;
             else size = 2;
+            unsuitable.push({
+              name:item,
+              size:size,
+              type:type,
+              center:riverLength[index].center,
+              temp:markers[key].temp,
+              total:markers[key].total,
+              place:riverLength[index].name,
+              veloc:markers[key].veloc
+            })
           }
           else if(markers[key][item]<riverLength && markers[key].temp>17 && markers[key].total>=900){
             if(markers[key].veloc<0.7) size=3;
             else size=4;
+            unsuitable.push({
+              name:item,
+              size:size,
+              type:type,
+              center:riverLength[index].center,
+              temp:markers[key].temp,
+              total:markers[key].total,
+              place:riverLength[index].name,
+              veloc:markers[key].veloc
+            })
           }
         }
       }
     }
+    console.log("un:");
+    console.log(unsuitable);
   }
   function clearMarkers() {
     for (var index in markers)
@@ -74,28 +100,28 @@
       styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
     };
     map = new google.maps.Map($("#map")[0],options);
-    // var markers = {
-    //   chicago: {
-    //     center: {lat: 47.3122301, lng: -87.320539},
-    //     GDD: 1, type:1,
-    //   },
-    //   newyork: {
-    //     center: {lat: 46.3122301, lng: -81.320539},
-    //     GDD: 2, type:3,
-    //   },
-    //   losangeles: {
-    //     center: {lat: 42.3122301, lng: -86.320539},
-    //     GDD: 2, type:2,
-    //   },
-    //   vancouver: {
-    //     center: {lat: 44.3122301, lng: -82.320539},
-    //     GDD: 3, type:4,
-    //   },
-    //   vancouvDer: {
-    //     center: {lat: 43.3122301, lng: -87.320539},
-    //     GDD: 4, type:5,
-    //   }
-    // };
+    var markers = {
+      chicago: {
+        center: {lat: 47.3122301, lng: -87.320539},
+        GDD: 1, type:1,
+      },
+      newyork: {
+        center: {lat: 46.3122301, lng: -81.320539},
+        GDD: 2, type:3,
+      },
+      losangeles: {
+        center: {lat: 42.3122301, lng: -86.320539},
+        GDD: 2, type:2,
+      },
+      vancouver: {
+        center: {lat: 44.3122301, lng: -82.320539},
+        GDD: 3, type:4,
+      },
+      vancouvDer: {
+        center: {lat: 43.3122301, lng: -87.320539},
+        GDD: 4, type:5,
+      }
+    };
     //clearMarkers();
     var infowindow = new google.maps.InfoWindow();
     // Construct the circle for each value in citymap.
@@ -116,15 +142,15 @@
 
       switch(markers[index].type){
         case 1:
-          var color='#FF0000';  break;
+          var color='#FF0000'; type='Idella';  break;
         case 2:
-          var color='#84C318';  break;
+          var color='#84C318'; type='Idella(2)'; break;
         case 3:
-          var color='#F6AE2D';  break;
+          var color='#F6AE2D'; type='Molitrix'; break;
         case 4:
-          var color='#BA2C73';  break;
+          var color='#BA2C73'; type='Molitrix(2)'; break;
         case 5:
-          var color='#F26419';  break;
+          var color='#F26419'; type='Piceus'; break;
       }
       var cityCircle = new google.maps.Circle({
         strokeColor: color,
@@ -138,30 +164,15 @@
         radius: Math.sqrt(population) * 100,
       });
       cityCircle.setValues({
-        temp:35.5*Math.random()
+        temp:35.5*Math.random(),
+        type:type
       })
       google.maps.event.addListener(cityCircle, 'mouseover', function () {
-          var contentString = $('<div class="detail">'+this.temp+'</div>');
+          var contentString = $('<div class="detail"><a href="/view/list.html">'+this.type+'</a></div>');
           infowindow.setContent(contentString[0]);
           infowindow.setPosition(markers[index].center);
           infowindow.open(map, this);
       });
     }
-    
-    // var neighborhoods = [
-    //   {lat: 46.3122301, lng: -87.320539},
-    //   {lat: 43.3122301, lng: -81.320539},
-    //   {lat: 42.3122301, lng: -85.320539},
-    //   {lat: 48.3122301, lng: -79.320539}
-    // ];
-
-    //  // To add the marker to the map, call setMap();
-    // for (var i = 0; i < neighborhoods.length; i++) {
-    //   markers.push(new google.maps.Marker({
-    //     position: neighborhoods[i],
-    //     map: map,
-    //     animation: google.maps.Animation.DROP
-    //   }));
-    // }
    
   }//initMap
