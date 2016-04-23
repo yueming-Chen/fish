@@ -91,8 +91,10 @@ section .content{
 	display: flex;
 	justify-content: center;
 	-webkit-justify-content: center;
-    align-content:flex-start;
+    align-content:center;
+    align-items: center;
     flex-wrap:wrap;
+    text-align: center;
 }
 
 section .content .pattern{
@@ -101,9 +103,7 @@ section .content .pattern{
 	height: 305px;
 	margin-top: 10px;
 	background-color:rgba(38,38,38,.2);
-	display: flex;
-	justify-content: center;
-	-webkit-justify-content:center;
+
 }
 
 section .content .pattern:hover{
@@ -114,6 +114,19 @@ section .content .pattern .paragram{
 	font-style:bold;
 	font-size: 30px;
 	color: white;
+	margin-top:18%;
+}
+section .content .pattern .count{
+	color: #fff;
+	display: inline-block;
+}
+section .content .pattern .count div{
+	font-size: 66px;
+	display: inline-block;
+}
+section .content .pattern .count span{
+	font-size: 55px;
+	font-weight: 700;
 }
 
 @media screen and (max-width: 480px) {
