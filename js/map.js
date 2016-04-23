@@ -168,7 +168,7 @@
         type:type
       })
       google.maps.event.addListener(cityCircle, 'mouseover', function () {
-          var contentString = $('<div class="detail"><a href="/view/list.html">'+this.type+'</a></div>');
+          var contentString = $('<div class="detail"><a href="./view/list.html">'+this.type+'</a></div>');
           infowindow.setContent(contentString[0]);
           infowindow.setPosition(markers[index].center);
           infowindow.open(map, this);
