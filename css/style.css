@@ -94,11 +94,7 @@ section .content{
     align-content:center;
     align-items: center;
     flex-wrap:wrap;
-<<<<<<< HEAD
     text-align: center;
-=======
-
->>>>>>> de02c4c4566f49b834e829a95b91181df2027f9f
 }
 
 section .content .pattern{
