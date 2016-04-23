@@ -1,0 +1,62 @@
+[
+	{
+		"name":"GRAND RIVER NEAR EASTMANVILLE, MI",
+		"length":144,
+		"center":{"lat": 43.015901, "lng": -85.957719}
+	},
+	{
+		"name":"SAGINAW RIVER AT HOLLAND AVENUE AT SAGINAW, MI",
+		"length":174.58,
+		"center":{"lat": 43.410552, "lng": -83.964190}
+	},
+	{
+		"name":"CLINTON RIVER AT MORAVIAN DRIVE AT MT. CLEMENS, MI",
+		"length":31.13,
+		"center":{"lat": 42.596020, "lng": -82.909527}
+	},
+	{
+		"name":"GENESEE RIVER AT FORD STREET BRIDGE, ROCHESTER NY",
+		"length":116.2,
+		"center":{"lat": 43.142520, "lng": -77.615485}
+	},
+	{
+		"name":"INDIANA HARBOR CANAL AT EAST CHICAGO, IN",
+		"length":582.13,
+		"center":{"lat": 41.670584, "lng": -87.441123}
+	},
+	{
+		"name":"PORTAGE-BURNS WATERWAY AT PORTAGE, IN",
+		"length":70.12,
+		"center":{"lat": 41.630034, "lng": -87.176868}
+	},
+	{
+		"name":"CHICAGO SANITARY AND SHIP CANAL NR LEMONT, IL",
+		"length":740.65,
+		"center":{"lat": 41.680560, "lng": -87.983975}
+	},
+	{
+		"name":"MILWAUKEE RIVER AT MOUTH AT MILWAUKEE, WI",
+		"length":146.11,
+		"center":{"lat": 43.024440, "lng": -87.898355}
+	},
+	{
+		"name":"MENOMONEE RIVER AT 16TH STREET AT MILWAUKEE, WI",
+		"length":37.62,
+		"center":{"lat": 43.033017, "lng": -87.934195}
+	},
+	{
+		"name":"FOX RIVER AT OIL TANK DEPOT AT GREEN BAY, WI",
+		"length":160.45,
+		"center":{"lat": 44.528600, "lng": -88.009989}
+	},
+	{
+		"name":"SILVER CREEK AT SPAULDING ROAD NEAR GREEN LAKE, WI",
+		"length":66.68,
+		"center":{"lat": 43.839718, "lng": -88.908323}
+	},
+	{
+		"name":"FOX RIVER AT APPLETON, WI",
+		"length":144.39 ,
+		"center":{"lat": 44.248061, "lng": -88.423084}
+	}
+]

@@ -105,9 +105,15 @@ section .content .pattern{
 	background-color:rgba(38,38,38,.2);
 	text-align: center;
 }
+section .content .heavy{
+	background-color: rgba(38,38,38,.4);
+}
 
 section .content .pattern:hover{
 	background-color:rgba(232,232,232,.4);
+}
+section .content .heavy:hover{
+	background-color: rgba(232,232,232,.4);
 }
 
 section .content .pattern .paragram{

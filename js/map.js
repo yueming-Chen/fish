@@ -1,10 +1,50 @@
-var markers = [];
+  var markers = [];
   var map;
+  var riverLength;
+  var unsuitable=[];
+  function loadJson(){
+    $.getJSON('../data/unimpounded.json',function(data){
+      riverLength=data;
+    }).done(function(){
+      $.getJSON('../data/test.json',function(data){
+        var place=data['place_name'],total=data['temperature_sum'];
+        for(var key in data['place_data'])
+          var today=data['place_data'][key];
+        var temp=today.avg_temperature,veloc=today.avg_veloc,d=today.d_value;
+        markers.push({
+          place:place,
+          total:total,
+          temp:temp,
+          veloc:veloc,
+          d:d,
+          center:{lat:0,lng:0},
+          GDD:1,
+          type:3
+        });
+      }).done(function(){
+        check().done(function(){
+          initMap();
+        });
+      })
+    });
+  }
+  function check(){
+    for(var key in markers){
+      for(var index in riverLength){
+
+      }
+    }
+  }
+  function clearMarkers() {
+    for (var index in markers)
+      markers[index].setMap(null);
+    markers = [];
+  }
 
   function initMap() {
+    console.log(riverLength);
   // Create a map object and specify the DOM element for display.
     var myLatLng = {lat: 45.3122301, lng: -84.320539};
-    var image = 'img/club_GPS_icon.png';
     var options={
       center: myLatLng,
       zoom: 6,
@@ -19,44 +59,44 @@ var markers = [];
       styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
     };
     map = new google.maps.Map($("#map")[0],options);
-
-    var markers = {
-      chicago: {
-        center: {lat: 47.3122301, lng: -87.320539},
-        GDD: 1, type:1,
-      },
-      newyork: {
-        center: {lat: 46.3122301, lng: -81.320539},
-        GDD: 2, type:3,
-      },
-      losangeles: {
-        center: {lat: 42.3122301, lng: -86.320539},
-        GDD: 2, type:2,
-      },
-      vancouver: {
-        center: {lat: 44.3122301, lng: -82.320539},
-        GDD: 3, type:4,
-      },
-      vancouvDer: {
-        center: {lat: 43.3122301, lng: -87.320539},
-        GDD: 4, type:5,
-      }
-    };
-    clearMarkers();
+    // var markers = {
+    //   chicago: {
+    //     center: {lat: 47.3122301, lng: -87.320539},
+    //     GDD: 1, type:1,
+    //   },
+    //   newyork: {
+    //     center: {lat: 46.3122301, lng: -81.320539},
+    //     GDD: 2, type:3,
+    //   },
+    //   losangeles: {
+    //     center: {lat: 42.3122301, lng: -86.320539},
+    //     GDD: 2, type:2,
+    //   },
+    //   vancouver: {
+    //     center: {lat: 44.3122301, lng: -82.320539},
+    //     GDD: 3, type:4,
+    //   },
+    //   vancouvDer: {
+    //     center: {lat: 43.3122301, lng: -87.320539},
+    //     GDD: 4, type:5,
+    //   }
+    // };
+    //clearMarkers();
     var infowindow = new google.maps.InfoWindow();
     // Construct the circle for each value in citymap.
     // Note: We scale the area of the circle based on the population.
     for (var index in markers) {
+      console.log(markers[index]);
       // Add the circle for this city to the map.
       switch(markers[index].GDD){
         case 1:
-          var population=60350; break;
-        case 2:
-          var population=271485;  break;
-        case 3:
-          var population=840583;  break;
-        case 4:
           var population=50583;  break;
+        case 2:
+          var population=60350; break;
+        case 3:
+          var population=271485;  break;
+        case 4:
+          var population=840583;  break;
       }
 
       switch(markers[index].type){
@@ -110,9 +150,3 @@ var markers = [];
     // }
    
   }//initMap
-
-  function clearMarkers() {
-    for (var index in markers)
-      markers[index].setMap(null);
-    markers = [];
-  }
