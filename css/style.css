@@ -2,22 +2,29 @@
 	margin:0;
 	padding:0;
 }
+html{
+	height: 100%;
+}
 body{
-	height:100%;
+	height: 100%;
 	font-family: 'Julius Sans One', Microsoft JhengHei, Merriweather, 'Helvetica Neue', Arial, sans-serif;
-
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     flex-direction:column;
 }
-
+.bg{
+	background-image: url(../img/ocean.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100%;
+}
 header{
 	display: flex;
 	flex-direction:row;
 	justify-content:space-between;
 	margin:0;
-	margin-top:5px;
 	width: 100%;
 	height: 50px;
 	line-height: 45px;
@@ -28,10 +35,15 @@ header{
 	/*background: linear-gradient(to right, #008DD5, #8EF9F3, #0AD3FF, #0AD3FF,#5194EC, #5194EC);
 	background:-moz-linear-gradient(to right, #008DD5, #8EF9F3, #0AD3FF, #0AD3FF,#5194EC, #5194EC);
 	background:-webkit-linear-gradient(to right, #008DD5, #8EF9F3, #0AD3FF, #0AD3FF,#5194EC, #5194EC);*/
-	font-size: 35px;
+	font-size: 20px;
 	font-weight: 700;
 	color: #383838;
 	top: 0;
+}
+.fixTop{
+	position: fixed;
+	z-index: 10;
+	background-color: rgba(255,255,255,.8);
 }
 header >a{
 	margin-left: 5%;
@@ -58,8 +70,10 @@ header .menu ul li:hover{
 }
 header .menu ul li a{
 	text-decoration: none;
-	font-size: 24px;
 	color:#383838;
+}
+header .menuLight ul li a{
+	color: #fff;
 }
 section{
 	margin-top:10px; 
@@ -68,7 +82,7 @@ section{
 
 section .content{
 	width: 100%;
-	min-height: 90%;
+	min-height: 100%;
 	display: flex;
 	justify-content: center;
 	-webkit-justify-content: center;
@@ -88,7 +102,7 @@ section .content .pattern{
 }
 
 section .content .pattern:hover{
-	background-color:rgba(38,38,38,.7);
+	background-color:rgba(232,232,232,.4);
 }
 
 section .content .pattern .paragram{
@@ -109,7 +123,7 @@ section .content .pattern .paragram{
 #map{
 	display: flex;
 	flex-direction:column;
-	width:1200px;
-	height:600px;
-	margin:20px auto;
+	width:100%;
+	height:100%;
+	/*margin:20px auto;*/
 }
