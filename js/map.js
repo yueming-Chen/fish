@@ -10,7 +10,9 @@
       var array=['Indiana_2','Michigan_3','Wisconsin_2','Wisconsin_3']; 
       for(var key in array){
         $.getJSON('./data/test/'+array[key]+'.json',function(data){
-          var place=data['place_name'],total=data['temperature_sum'];
+          var place=data['place_name'],total=data['temperature_sum'],latlng=data['place_location'];
+          console.log("fuck");
+          console.log(latlng);
           for(var key in data['place_data']){
             var today=data['place_data'][key];
           }
@@ -21,12 +23,9 @@
             temp:temp,
             veloc:veloc,
             d:d,
-            center:{lat:0,lng:0},
-            GDD:1,
-            type:3
+            center:{lat:latlng.lat,lng:latlng.long},
           });
         }).done(function(){
-          console.log(markers)
           check();
         })
       }
@@ -44,13 +43,14 @@
             case 'M.piceus': type=5;break;
           }
           if(markers[key].d[item]<riverLength[index].length && markers[key].temp>16 && markers[key].total>=650 && markers[key].total<900){
+            console.log(key+":"+markers[key].center);
             if(markers[key].veloc<0.7) size=1;
             else size = 2;
             unsuitable.push({
               name:item,
               size:size,
               type:type,
-              center:riverLength[index].center,
+              center:markers[key].center,
               temp:markers[key].temp,
               total:markers[key].total,
               place:riverLength[index].name,
@@ -64,7 +64,7 @@
               name:item,
               size:size,
               type:type,
-              center:riverLength[index].center,
+              center:markers[key].center,
               temp:markers[key].temp,
               total:markers[key].total,
               place:riverLength[index].name,
@@ -153,7 +153,6 @@
       })
       google.maps.event.addListener(cityCircle, 'mouseover', function () {
           var contentString = $('<div class="detail"><a href="./view/list.html?type='+this.type+'&place='+this.place+'&veloc='+this.veloc+'&temp='+this.temp+'&total='+this.total+'&d='+this.d+'">'+this.type+'</a></div>');
-          console.log(this);
           infowindow.setContent(contentString[0]);
           infowindow.setPosition(unsuitable[index].center);
           infowindow.open(map, this);
