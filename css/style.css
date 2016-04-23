@@ -107,7 +107,7 @@ section .content .pattern{
 	height: 305px;
 	margin-top: 10px;
 	background-color:rgba(38,38,38,.2);
-
+	text-align: center;
 }
 
 section .content .pattern:hover{
