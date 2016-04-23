@@ -10,7 +10,7 @@
       var array=['Indiana_2','Michigan_3','Wisconsin_2','Wisconsin_3']; 
       for(var key in array){
         $.getJSON('./data/test/'+array[key]+'.json',function(data){
-          var place=data['place_name'],total=data['temperature_sum'],latlng={lat:Number(data['place_location'].lat),lng:(data['place_location'].long)};
+          var place=data['place_name'],total=data['temperature_sum'],latlng={lat:Number(data['place_location'].lat),lng:Number(data['place_location'].long)};
           console.log("fuck");
           console.log(latlng);
           for(var key in data['place_data']){
