@@ -16,6 +16,7 @@ var markers = [];
       disableDoubleClickZoom:true,
       mapTypeControl:false,
       mapTypeId: google.maps.MapTypeId.TERRAIN,
+      styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
     };
     map = new google.maps.Map($("#map")[0],options);
 
@@ -62,11 +63,11 @@ var markers = [];
         case 1:
           var color='#FF0000';  break;
         case 2:
-          var color='#335C67';  break;
+          var color='#84C318';  break;
         case 3:
           var color='#F6AE2D';  break;
         case 4:
-          var color='#00B9AE';  break;
+          var color='#BA2C73';  break;
         case 5:
           var color='#F26419';  break;
       }
@@ -84,7 +85,7 @@ var markers = [];
       cityCircle.setValues({
         temp:35.5*Math.random()
       })
-      google.maps.event.addListener(cityCircle, 'click', function () {
+      google.maps.event.addListener(cityCircle, 'mouseover', function () {
           var contentString = $('<div class="detail">'+this.temp+'</div>');
           infowindow.setContent(contentString[0]);
           infowindow.setPosition(markers[index].center);
