@@ -2,22 +2,28 @@
 	margin:0;
 	padding:0;
 }
+@font-face{
+	font-family: chogokubosogothic;
+	src:url(../chogokubosogothic_5.ttf);
+}
 html{
 	height: 100%;
 }
 body{
 	height: 100%;
-	font-family: 'Julius Sans One', Microsoft JhengHei, Merriweather, 'Helvetica Neue', Arial, sans-serif;
+	font-family: chogokubosogothic,'Julius Sans One', Microsoft JhengHei, Merriweather, 'Helvetica Neue', Arial, sans-serif;
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     flex-direction:column;
 }
+
 .bg{
 	background-image: url(../img/ocean.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+	background-attachment: fixed;
 	height: 100%;
 }
 header{
@@ -126,4 +132,40 @@ section .content .pattern .paragram{
 	width:100%;
 	height:100%;
 	/*margin:20px auto;*/
+}
+
+.about{
+	width: 100%;
+	display: flex;;
+	flex-direction: column;
+}
+.about .content{
+	width: 80%;
+	margin: 0 auto;
+	padding-bottom: 140px;
+	min-height: 200px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.about .content:first-child{
+	margin-top: 50px;
+	padding-bottom: 0;
+}
+
+.about .content-reverse{
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	text-align: right;
+}
+.about .content h1{
+	color: #fff;
+	width: 100%;
+}
+.about .content p{
+	width: 60%;
+	font-size: 20px;
+	color: #fff;
+	font-weight: 700;
 }
