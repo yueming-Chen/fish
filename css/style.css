@@ -4,14 +4,14 @@
 }
 @font-face{
 	font-family: chogokubosogothic;
-	src:url(../chogokubosogothic_5.ttf);
+	src:url(../handwriteW3.ttc);
 }
 html{
 	height: 100%;
 }
 body{
 	height: 100%;
-	font-family: chogokubosogothic,'Julius Sans One', Microsoft JhengHei, Merriweather, 'Helvetica Neue', Arial, sans-serif;
+	font-family: 'Julius Sans One', Microsoft JhengHei, Merriweather, 'Helvetica Neue', Arial, sans-serif;
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -42,7 +42,6 @@ header{
 	background:-moz-linear-gradient(to right, #008DD5, #8EF9F3, #0AD3FF, #0AD3FF,#5194EC, #5194EC);
 	background:-webkit-linear-gradient(to right, #008DD5, #8EF9F3, #0AD3FF, #0AD3FF,#5194EC, #5194EC);*/
 	font-size: 20px;
-	font-weight: 700;
 	color: #383838;
 	top: 0;
 }
@@ -138,6 +137,7 @@ section .content .pattern .paragram{
 	width: 100%;
 	display: flex;;
 	flex-direction: column;
+	font-family: chogokubosogothic;
 }
 .about .content{
 	width: 80%;
@@ -169,3 +169,4 @@ section .content .pattern .paragram{
 	color: #fff;
 	font-weight: 700;
 }
+
