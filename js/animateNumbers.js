@@ -8,7 +8,7 @@
             	duration: duration == undefined ? 1000 : duration,
             	easing: ease == undefined ? "swing" : ease,
             	step: function() {
-            		$this.text(Math.floor(this.value));
+            		$this.text(Math.floor(this.value*100)/100);
 					if (commas) { $this.text($this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); }
             	},
             	complete: function() {

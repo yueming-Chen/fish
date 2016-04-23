@@ -62,10 +62,17 @@
   <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
   <script type="text/javascript" src="../js/animateNumbers.js"></script>
   <script type="text/javascript">
-		$("#temp").animateNumbers(32, true, 4000);
-        $("#vol").animateNumbers(0.7, true, 3000);
-        $("#total").animateNumbers(550, true, 5000);
-        $("#dist").animateNumbers(3000, true, 2000);
+  	function QueryString(item){
+		var svalue = location.search.match(new RegExp("[\?\&]" + item + "=([^\&]*)(\&?)","i"));
+		return svalue ? svalue[1] : svalue;
+	}
+		
+  		$("#place").text(QueryString("place").replace(/%20/g, " ")).css({ "font-size": "32px","font-weight":"700"});;
+  		$("#type").text(QueryString("type"));
+		$("#temp").animateNumbers(Math.round(QueryString("temp")*100)/100, true, 4000);
+        $("#vol").animateNumbers(Math.round(QueryString("veloc")*100)/100, true, 3000);
+        $("#total").animateNumbers(Math.round(QueryString("total")*100)/100, true, 5000);
+        $("#dist").animateNumbers(Math.round(QueryString("d")*100)/100, true, 2000);
   </script>
 </body>
 </html>
