@@ -22,9 +22,8 @@
           type:3
         });
       }).done(function(){
-        check().done(function(){
-          initMap();
-        });
+        check();
+        initMap();
       })
     });
   }
