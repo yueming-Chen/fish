@@ -6,7 +6,7 @@
     $.getJSON('./data/unimpounded.json',function(data){
       riverLength=data;
     }).done(function(){
-      $.getJSON('../data/test.json',function(data){
+      $.getJSON('./data/test.json',function(data){
         var place=data['place_name'],total=data['temperature_sum'];
         for(var key in data['place_data'])
           var today=data['place_data'][key];
