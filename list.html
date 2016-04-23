@@ -2,14 +2,17 @@
 <html>
 <head>
 	<title>Fishackthon - Blue Tear</title>
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="controlCtrl.js"></script>
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+</head>
 <body>
 	<header>
 		<a href="index.html">
 			<img src="./img/logo.png">
-		</a>
+		</a>	
 		<div class="menu">
 			<ul>
 				<li><a href="list.html">即時資料</a></li>
@@ -18,10 +21,28 @@
 			</ul>
 		</div>
 	</header>
-  <div id="map"></div>
+	<section>
+	<div class="content">
+		<div class="pattern">
+			<p class="paragram">place</p>
+		</div>
+		<div class="pattern">
+			<p class="paragram">水溫 300度</p>
+		</div>
+		<div class="pattern">
+			<p class="paragram">流速 0.7m/s</p>
+		</div>
+		<div class="pattern">
+			<p class="paragram">距離 300m</p>
+		</div>
+		<div class="pattern">
+			<p class="paragram">DDP 300</p>
+		</div>
+		<div class="pattern">
+			<div class="paragram">魚種 大龍鯉魚</div>
+		</div>
+	</div>
+</section>
   <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
-  <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAe27LBOmr519l7a6wlPI72pemAqXPjJ98&callback=initMap"></script>
-  <script type="text/javascript" src="./js/map.js"></script>
 </body>
 </html>
-

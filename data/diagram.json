@@ -1,0 +1,13 @@
+[
+	{"date":201110,"New York":63.4,"San Francisco":62.7,"Austin":72.2},
+	{"date":201111,"New York":58.0,"San Francisco":59.9,"Austin":67.7},
+	{"date":201112,"New York":76.6,"San Francisco":59.1,"Austin":69.4},
+	{"date":201201,"New York":61.6,"San Francisco":56.7,"Austin":68.0},
+	{"date":201202,"New York":59.1,"San Francisco":60.1,"Austin":72.4},
+	{"date":201203,"New York":63.4,"San Francisco":58.8,"Austin":77.0},
+	{"date":201214,"New York":63.4,"San Francisco":63.4,"Austin":82.3},
+	{"date":201215,"New York":58.8,"San Francisco":62.7,"Austin":78.9},
+	{"date":201216,"New York":63.4,"San Francisco":61.6,"Austin":68.8},
+	{"date":201217,"New York":56.7,"San Francisco":76.6,"Austin":68.7},
+	{"date":201218,"New York":60.1,"San Francisco":62.7,"Austin":75.3}
+]
