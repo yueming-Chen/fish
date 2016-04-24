@@ -138,8 +138,27 @@ section .content .pattern .count span{
 @media screen and (max-width: 480px) {
 
 /*如果使用者視窗寬度 <= 480px，將字體大小變為 16px*/
-	header{
-		font-size: 30px;
+	header .menu{
+		display: none;
+	}
+	.about{
+	}
+	.about .content{
+		margin-left: 10px;
+		margin-right: 10px
+		font-size: 15px;
+		clear:both;
+	}
+	.about .content p{
+		margin-right:0px;
+		margin-left:0px;  
+		font-size: 12px;
+		 
+	}
+
+	img{
+		width: 100%;
+		height: 100%;
 	}
 
 }
